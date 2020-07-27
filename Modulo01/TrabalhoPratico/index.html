@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Trabalho Prático - Módulo 01</title>
+  </head>
+  <body>
+    <div class="form">
+      <div class="input">
+        <label for="red">(R) Vermelho:</label>
+        <div>
+          <input
+            type="range"
+            name="red"
+            id="red"
+            value="127"
+            min="0"
+            max="255"
+          />
+          <input
+            type="text"
+            name="redTxt"
+            disabled
+            id="redTxt"
+            value="127"
+            size="1"
+          />
+        </div>
+      </div>
+      <div class="input">
+        <label for="green">(G) Verde:</label>
+        <div>
+          <input
+            type="range"
+            name="green"
+            id="green"
+            value="127"
+            min="0"
+            max="255"
+          />
+          <input
+            type="text"
+            name="greenTxt"
+            disabled
+            id="greenTxt"
+            value="127"
+            size="1"
+          />
+        </div>
+      </div>
+      <div class="input">
+        <label for="blue">(B) Azul:</label>
+        <div>
+          <input
+            type="range"
+            name="blue"
+            id="blue"
+            value="127"
+            min="0"
+            max="255"
+          />
+          <input
+            type="text"
+            name="blueTxt"
+            disabled
+            id="blueTxt"
+            value="127"
+            size="1"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="bgcolor"></div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+API Users https://randomuser.me/api/?results=100&seed=promise&nat=us,fr,au,br
+API Countries https://restcountries.eu/rest/v2/all
