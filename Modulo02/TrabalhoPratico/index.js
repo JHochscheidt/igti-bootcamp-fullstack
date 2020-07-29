@@ -226,7 +226,7 @@ const run = async () => {
     console.log('\nUFs and respective quantity of cities: \n');
     countCitiesByUf();
 
-    console.log('\nShow data for de Ufs with More and Less Cities:\n');
+    console.log('\nShow data for Ufs with More and Less Cities:\n');
     showUfsByCountCities('Less Cities', -5);
     showUfsByCountCities('More Cities', 0, 5);
 
