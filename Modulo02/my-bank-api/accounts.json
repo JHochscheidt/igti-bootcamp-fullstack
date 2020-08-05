@@ -1,5 +1,5 @@
 {
-  "nextId": 7,
+  "nextId": 8,
   "accounts": [
     {
       "name": "Jackson Hochscheidt",
@@ -28,6 +28,11 @@
     },
     {
       "id": 6,
+      "name": "Rafaella Santos de Oliveira",
+      "balance": 2000
+    },
+    {
+      "id": 7,
       "name": "Rafaella Santos de Oliveira",
       "balance": 2000
     }
