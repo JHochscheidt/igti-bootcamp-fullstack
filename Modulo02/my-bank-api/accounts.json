@@ -1,4 +1,10 @@
 {
-  "nextId": 8,
-  "accounts": []
+  "nextId": 9,
+  "accounts": [
+    {
+      "id": 8,
+      "name": "Rafaella Santos de Oliveira Hochscheidt",
+      "balance": 1245.15
+    }
+  ]
 }
