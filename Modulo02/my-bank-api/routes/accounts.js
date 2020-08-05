@@ -29,7 +29,23 @@ router.get('/', async (req, res) => {
     const data = JSON.parse(await readFile(global.fileName));
     delete data.nextId;
     res.send(data);
-  } catch (err) {}
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
+});
+
+router.get('/:id', async (req, res) => {
+  try {
+    const data = JSON.parse(await readFile(global.fileName));
+
+    let account = data.accounts.find(
+      (account) => account.id === +req.params.id
+    );
+
+    res.send(account);
+  } catch (err) {
+    res.status(400).send({ error: err.message });
+  }
 });
 
 export default router;
