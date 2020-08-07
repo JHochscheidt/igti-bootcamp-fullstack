@@ -1,6 +1,5 @@
 import express from 'express';
 import { promises as fs, write } from 'fs';
-
 const { readFile, writeFile } = fs;
 
 const router = express.Router();
@@ -19,6 +18,7 @@ router.post('/', async (req, res, next) => {
 
     await writeFile(global.fileName, JSON.stringify(data, null, 2));
     res.send(account);
+    logger.info(`POST /account - ${JSON.stringify(account)}`);
   } catch (err) {
     next(err);
   }
@@ -29,6 +29,7 @@ router.get('/', async (req, res, next) => {
     const data = JSON.parse(await readFile(global.fileName));
     delete data.nextId;
     res.send(data);
+    logger.info(`GET /account`);
   } catch (err) {
     next(err);
   }
@@ -41,8 +42,8 @@ router.get('/:id', async (req, res, next) => {
     let account = data.accounts.find(
       (account) => account.id === +req.params.id
     );
-
     res.send(account);
+    logger.info(`GET /account/:id`);
   } catch (err) {
     next(err);
   }
@@ -57,6 +58,7 @@ router.delete('/:id', async (req, res, next) => {
     );
     await writeFile(global.fileName, JSON.stringify(data, null, 2));
     res.end();
+    logger.info(`DELETE /account/:id - ${req.params.id}`);
   } catch (err) {
     next(err);
   }
@@ -73,6 +75,7 @@ router.put('/', async (req, res, next) => {
     await writeFile(global.fileName, JSON.stringify(data, null, 2));
 
     res.send(account);
+    logger.info(`PUTH /account - ${JSON.stringify(account)}`);
   } catch (err) {
     next(err);
   }
@@ -89,13 +92,14 @@ router.patch('/updateBalance', async (req, res, next) => {
     await writeFile(global.fileName, JSON.stringify(data, null, 2));
 
     res.send(data.accounts[index]);
+    logger.info(`PATCH /account/updateBalance - ${JSON.stringify(account)}`);
   } catch (err) {
     next(err);
   }
 });
 
 router.use((err, req, res, next) => {
-  console.log(err);
+  logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);
   res.status(400).send({ error: err.message });
 });
 
