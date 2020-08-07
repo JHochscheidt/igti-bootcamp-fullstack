@@ -1,0 +1,29 @@
+{
+  "nextId": 5,
+  "lancamentos": [
+    {
+      "id": 1,
+      "valor": 1000,
+      "categoria": "Salário",
+      "data": "05/08/2020"
+    },
+    {
+      "id": 2,
+      "valor": -1000,
+      "categoria": "Supermercado",
+      "data": "05/08/2020"
+    },
+    {
+      "id": 3,
+      "valor": 9000,
+      "categoria": "Salário",
+      "data": "05/08/2020"
+    },
+    {
+      "id": 4,
+      "valor": 9000,
+      "categoria": "Salário",
+      "data": "05/09/2020"
+    }
+  ]
+}
