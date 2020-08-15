@@ -1,0 +1,20 @@
+.salary {
+  width: 100%;
+}
+
+.infoSalary {
+  margin-top: 25px;
+  width: 200px;
+  max-width: 100%;
+}
+
+.progressBar {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  margin-top: 50px;
+  background-color: red;
+}
+.progressBar div {
+  display: inline-block;
+}
