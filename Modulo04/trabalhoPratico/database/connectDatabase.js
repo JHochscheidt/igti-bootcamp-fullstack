@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-const DBNAME = 'my-bank-api';
-const PASSWORD = 'igti';
+const DBNAME = process.env.DB_NAME;
+const PASSWORD = process.env.DB_PWD;
 
 const connectDatabase = async () => {
   try {

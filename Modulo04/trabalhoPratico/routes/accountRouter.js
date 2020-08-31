@@ -11,18 +11,6 @@ router.get('/account', async (_, res) => {
   }
 });
 
-// router.get('/account/:id', async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const account = await accountModel.findById({ _id: id });
-//     if (!account) {
-//       res.send([]);
-//     }
-//     res.send(account);
-//   } catch (err) {
-//     res.status(500).send(`erro ao buscar conta com o id ${id} ` + err);
-//   }
-// });
 
 router.post('/account', async (req, res) => {
   try {
@@ -33,31 +21,6 @@ router.post('/account', async (req, res) => {
     res.status(500).send(`Erro ao adicionar nova conta! ` + err);
   }
 });
-
-// atualiza tudo, cria um novo documento
-// router.patch('/account/:id', async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const patchedAccount = await accountModel.findByIdAndUpdate(
-//       { _id: id },
-//       req.body,
-//       { new: true }
-//     );
-//     res.send(patchedAccount);
-//   } catch (err) {
-//     res.send(`Erro ao tentar alterar conta com id ${id}! ` + err);
-//   }
-// });
-
-// router.delete('/account/:id', async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const deletedAccount = await accountModel.findByIdAndDelete({ _id: id });
-//     res.send(deletedAccount);
-//   } catch (err) {
-//     res.status(500).send(`Erro ao remover conta com id ${id}! ` + err);
-//   }
-// });
 
 /*
   4) Crie um endpoint para registrar um depósito em uma conta.
@@ -330,6 +293,11 @@ router.get('/account/rich', async (req, res) => {
 router.post('/agency/private', async (req, res) => {
   try {
     const result = await accountModel.aggregate([
+      {
+        $sort: {
+          balance: -1
+        }
+      },
       {
         $group: {
           _id: '$agencia',
