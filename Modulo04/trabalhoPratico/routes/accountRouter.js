@@ -329,22 +329,29 @@ router.get('/account/rich', async (req, res) => {
 */
 router.post('/agency/private', async (req, res) => {
   try {
-    const result = await accountModel.aggregate([
-      {
-        $group: {
-          _id: '$agencia',
-          name: { $first: '$name' },
-          conta: { $first: '$conta' },
-          // agencia: { $first: '$agencia' },
-          balance: { $max: '$balance' },
+    const result = await accountModel
+      .aggregate([
+        {
+          $sort: {
+            balance: -1,
+          },
         },
-      },
-      {
-        $set: {
-          agencia: 99,
+        {
+          $group: {
+            _id: '$agencia',
+            agencia: { $first: '$agencia' },
+            conta: { $first: '$conta' },
+            balance: { $max: '$balance' },
+            name: { $first: '$name' },
+          },
         },
-      },
-    ]);
+        // {
+        //   $set: {
+        //     agencia: 99,
+        //   },
+        // },
+      ])
+      .sort({ agencia: 1 });
 
     result.forEach((rich) => delete rich._id);
 
