@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
-const DBNAME = 'my-bank-api';
-const PASSWORD = 'igti';
+
+import dotenv from 'dotenv';
+dotenv.config()
+
+const DBNAME = process.env.DBNAME;
+const PASSWORD = process.env.DBPWD;
 
 const connectDatabase = async () => {
   try {
