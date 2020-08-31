@@ -1,6 +1,10 @@
 import mongoose from 'mongoose';
-const DBNAME = process.env.DB_NAME;
-const PASSWORD = process.env.DB_PWD;
+
+import dotenv from 'dotenv';
+dotenv.config()
+
+const DBNAME = process.env.DBNAME;
+const PASSWORD = process.env.DBPWD;
 
 const connectDatabase = async () => {
   try {
