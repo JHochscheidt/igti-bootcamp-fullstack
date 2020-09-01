@@ -11,7 +11,6 @@ router.get('/account', async (_, res) => {
   }
 });
 
-
 router.post('/account', async (req, res) => {
   try {
     const newAccount = await new accountModel(req.body);
@@ -292,28 +291,12 @@ router.get('/account/rich', async (req, res) => {
 */
 router.post('/agency/private', async (req, res) => {
   try {
-<<<<<<< HEAD
     const result = await accountModel
       .aggregate([
         {
           $sort: {
             balance: -1,
           },
-=======
-    const result = await accountModel.aggregate([
-      {
-        $sort: {
-          balance: -1
-        }
-      },
-      {
-        $group: {
-          _id: '$agencia',
-          name: { $first: '$name' },
-          conta: { $first: '$conta' },
-          // agencia: { $first: '$agencia' },
-          balance: { $max: '$balance' },
->>>>>>> fe0de8427d18b43fe8cce80a6258c1c0056b11ab
         },
         {
           $group: {
@@ -324,11 +307,6 @@ router.post('/agency/private', async (req, res) => {
             name: { $first: '$name' },
           },
         },
-        // {
-        //   $set: {
-        //     agencia: 99,
-        //   },
-        // },
       ])
       .sort({ agencia: 1 });
 
