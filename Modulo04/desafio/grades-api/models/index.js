@@ -29,6 +29,13 @@ const studentSchema = mongoose.Schema({
   },
 });
 
+studentSchema.method('toJSON', function () {
+  const { __v, _id, ...object } = this.toObject();
+
+  object.id = _id;
+  return object;
+});
+
 const studentModel = mongoose.model('student', studentSchema, 'student');
 
 export { db, studentModel };

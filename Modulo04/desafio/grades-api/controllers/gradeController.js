@@ -34,17 +34,17 @@ const findAll = async (req, res) => {
 
     // grades = Array.from(grades);
 
-    grades = grades.map((grade) => {
-      const { _id: id, name, subject, type, value, lastModified } = grade;
-      return {
-        id,
-        name,
-        subject,
-        type,
-        value,
-        lastModified,
-      };
-    });
+    // grades = grades.map((grade) => {
+    //   const { _id: id, name, subject, type, value, lastModified } = grade;
+    //   return {
+    //     id,
+    //     name,
+    //     subject,
+    //     type,
+    //     value,
+    //     lastModified,
+    //   };
+    // });
     logger.info(`GET /grade`);
     res.send(grades);
   } catch (error) {
@@ -56,10 +56,10 @@ const findAll = async (req, res) => {
 };
 
 const findOne = async (req, res) => {
-  const { id } = req.params;
+  let { id } = req.params;
   try {
-    const _id = db.mongoose.Types.ObjectId(id); // resolveu problema com o id/_id
-    const retrieveGrade = await studentModel.findById({ _id });
+    // id = db.mongoose.Types.ObjectId(id); // resolveu problema com o id/_id
+    const retrieveGrade = await studentModel.findById({ id });
     res.send(retrieveGrade);
     logger.info(`GET /grade - ${id}`);
   } catch (error) {
@@ -78,15 +78,15 @@ const update = async (req, res) => {
   // console.log(req.body);
 
   try {
-    const { _id, name, subject, type, value } = req.body;
+    const { id, name, subject, type, value } = req.body;
     const updatedGrade = await studentModel.updateOne(
-      { _id },
+      { id },
       { name, subject, type, value }
     );
     res.send(updatedGrade);
-    logger.info(`PUT /grade - ${_id} - ${JSON.stringify(req.body)}`);
+    logger.info(`PUT /grade - ${id} - ${JSON.stringify(req.body)}`);
   } catch (error) {
-    res.status(500).send({ message: 'Erro ao atualizar a Grade id: ' + _id });
+    res.status(500).send({ message: 'Erro ao atualizar a Grade id: ' + id });
     logger.error(`PUT /grade - ${JSON.stringify(error.message)}`);
   }
 };
@@ -95,8 +95,8 @@ const remove = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const _id = db.mongoose.Types.ObjectId(id);
-    const deletedGrade = await studentModel.deleteOne({ _id });
+    // const _id = db.mongoose.Types.ObjectId(id);
+    const deletedGrade = await studentModel.deleteOne({ id });
     logger.info(`DELETE /grade - ${id}`);
   } catch (error) {
     res
