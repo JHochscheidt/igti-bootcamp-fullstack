@@ -9,10 +9,10 @@ Os alunos deverão desempenhar as seguintes atividades:
 [x] 4. Criar um novo branch denominado ‘feature/modeloMongoose’ e implementar neste novo  branch um  modelo  de  dados,
       utilizando  o  mongoose  para  a  sua  API.  Nesta mesma implementação deverá ser implementada a lógica no controller,
       utilizando o schema criado. Ao final desta implementação, o branch deve ser mergeado para o master.
-[] 5. Excluir os branches de features e manter somente o branch master.
-[] 6. Remover o controle de versão deste repositório local (basta excluir o .git). 
+[x] 5. Excluir os branches de features e manter somente o branch master.
+[x] 6. Remover o controle de versão deste repositório local (basta excluir o .git). 
       Versionar novamente o repositório e commitar seu projeto na sua conta do github.
-[] 7. Publicar o Front-End disponibilizado no Heroku.
+[x] 7. Publicar o Front-End disponibilizado no Heroku.
 [] 8. Publicar o Back-End disponibilizado após a implementação das atividades 2 e 3.
 [] 9. Ajustar os parâmetros de comunicação do Front-End com o Back-End,bem como o processo de deploy automático no Heroku.
       Os parâmetros de comunicação entre o fronte back podem ser encontrados em http-common.js (front) e app.js (back).

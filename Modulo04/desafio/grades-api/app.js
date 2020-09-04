@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
     //aqui seria a url do front end ? que acessa a api???
-    origin: 'http://localhost:3000',
+    origin: 'https://grades-app-hochscheidt.herokuapp.com',
   })
 );
 
